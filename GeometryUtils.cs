@@ -7,9 +7,7 @@ namespace DxfLibrary
     {
         public const double PRECISION = 0.001;
 
-        /// <summary>
-        /// Calcule l'intersection entre deux segments (première méthode)
-        /// </summary>
+        //Calcule l'intersection entre deux segments (première méthode)
         public static bool IntersectionSegment(Ligne l1, Ligne l2, out Point ptCible)
         {
             ptCible = new Point();
@@ -66,9 +64,7 @@ namespace DxfLibrary
             }
         }
 
-        /// <summary>
-        /// Calcule l'intersection entre deux segments (deuxième méthode alternative)
-        /// </summary>
+        //Calcule l'intersection entre deux segments (deuxième méthode alternative)
         public static bool IntersectionSegment2(Ligne l1, Ligne l2, out Point ptCible)
         {
             ptCible = new Point();
@@ -176,9 +172,7 @@ namespace DxfLibrary
             }
         }
 
-        /// <summary>
-        /// Vérifie si un point C est sur le segment AB
-        /// </summary>
+        //Vérifie si un point C est sur le segment AB
         public static bool PointSurSegment(Ligne lAB, Point C)
         {
             Vect AB = new Vect
@@ -207,9 +201,7 @@ namespace DxfLibrary
             return false;
         }
 
-        /// <summary>
-        /// Calcule la distance au carré entre deux points (évite le calcul de la racine carrée)
-        /// </summary>
+        //Calcule la distance au carré entre deux points (évite le calcul de la racine carrée)
         public static double Distance2(Point A, Point B)
         {
             double dx = B.X - A.X;
@@ -218,9 +210,7 @@ namespace DxfLibrary
             return dx * dx + dy * dy + dz * dz;
         }
 
-        /// <summary>
-        /// Calcule la distance entre deux points
-        /// </summary>
+        //Calcule la distance entre deux points
         public static double Distance(Point A, Point B)
         {
             return Math.Sqrt(Distance2(A, B));

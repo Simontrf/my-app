@@ -4,12 +4,6 @@ using System.Text;
 
 namespace DxfLibrary
 {
-    // ============================================================================
-    // IMPLÉMENTATIONS COMPLÈTES DES CLASSES (depuis DXF.CPP)
-    // ============================================================================
-
-    // Note: Les classes de base (Point, Liste, etc.) sont déjà dans dxf_h.cs
-    // Ce fichier contient les méthodes métier importantes
 
     public static class DxfUtilities
     {
@@ -88,24 +82,24 @@ namespace DxfLibrary
         public static void EcritTeteErreur(StreamWriter writer)
         {
             writer.Write(@"  0
-SECTION
-  2
-HEADER
-  9
-$CLAYER
-  8
-ERREURS
-  9
-$INSUNITS
- 70
-     6
-  0
-ENDSEC
-  0
-SECTION
-  2
-ENTITIES
-");
+            SECTION
+              2
+            HEADER
+              9
+            $CLAYER
+              8
+            ERREURS
+              9
+            $INSUNITS
+             70
+                 6
+              0
+            ENDSEC
+              0
+            SECTION
+              2
+            ENTITIES
+            ");
         }
 
         //Écrit une erreur dans le fichier DXF d'erreurs
@@ -114,68 +108,68 @@ ENTITIES
         {
             // Croix d'erreur en DXF
             dxfWriter.Write($@"  0
-LINE
-  8
-ERREURS
- 10
-{x:F2}
- 20
-{y:F2}
- 30
-{z:F2}
- 11
-{x + 0.5:F2}
- 21
-{y + 0.5:F2}
- 31
-{z:F2}
-  0
-LINE
-  8
-ERREURS
- 10
-{x:F2}
- 20
-{y:F2}
- 30
-{z:F2}
- 11
-{x + 0.03:F2}
- 21
-{y + 0.12:F2}
- 31
-{z:F2}
-  0
-LINE
-  8
-ERREURS
- 10
-{x:F2}
- 20
-{y:F2}
- 30
-{z:F2}
- 11
-{x + 0.12:F2}
- 21
-{y + 0.03:F2}
- 31
-{z:F2}
-  0
-TEXT
-  8
-ERREURS
- 10
-{x + 0.5:F2}
- 20
-{y + 0.5:F2}
- 30
-{z:F2}
- 40
-0.1
-  1
-Err.
-");
+            LINE
+              8
+            ERREURS
+             10
+            {x:F2}
+             20
+            {y:F2}
+             30
+            {z:F2}
+             11
+            {x + 0.5:F2}
+             21
+            {y + 0.5:F2}
+             31
+            {z:F2}
+              0
+            LINE
+              8
+            ERREURS
+             10
+            {x:F2}
+             20
+            {y:F2}
+             30
+            {z:F2}
+             11
+            {x + 0.03:F2}
+             21
+            {y + 0.12:F2}
+             31
+            {z:F2}
+              0
+            LINE
+              8
+            ERREURS
+             10
+            {x:F2}
+             20
+            {y:F2}
+             30
+            {z:F2}
+             11
+            {x + 0.12:F2}
+             21
+            {y + 0.03:F2}
+             31
+            {z:F2}
+              0
+            TEXT
+              8
+            ERREURS
+             10
+            {x + 0.5:F2}
+             20
+            {y + 0.5:F2}
+             30
+            {z:F2}
+             40
+            0.1
+              1
+            Err.
+            ");
 
             // Fichier texte d'erreurs
             txtWriter.WriteLine($"{x:F2},{y:F2},{z:F2},\"{texte}\"");
@@ -191,10 +185,6 @@ EOF
 ");
         }
     }
-
-    // ============================================================================
-    // EXTENSIONS DE LA CLASSE DESSIN (méthodes principales)
-    // ============================================================================
 
     public partial class Dessin
     {
@@ -271,7 +261,7 @@ EOF
             return sb.ToString();
         }
 
-        //LIT UN FICHIER DXF COMPLET (implémentation complète depuis DXF.CPP)
+        //LIT UN FICHIER DXF COMPLET
         public bool LitDXF(AscenceurProc ascenceur, string fichier)
         {
             if (string.IsNullOrEmpty(fichier))
@@ -541,7 +531,7 @@ EOF
             }
         }
 
-        //ÉCRIT LES TRONÇONS (implémentation complète depuis DXF.CPP)
+        //ÉCRIT LES TRONÇONS
         public int EcrisTroncon(AscenceurProc ascenceur, string fichier, string nomPlan, bool needXDatas)
         {
             // Chemins des fichiers
